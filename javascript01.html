@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JAVAscript </title>
+    <!--  head 태크 사이에 있는 script는 body 요소가 로딩되기 전에     -->
+    <script>
+    //주석 표시 JAVA랑 같음  //한줄각주 /*여러줄 각주*/
+    var str
+
+    </script>
+</head>
+<body>
+    <h1>자바스크립트란?</h1>
+    <p>자바스크립트는 웹의 요소나 브라우저를 제어할 목적으로 만들어진 동적 문서를 만드는 웹 프로그래밍 언어입니다.</p>
+    <hr>
+    <h2>자바스크립트의 레벨</h2>
+    <p>자바스크립트의 정식 명칭은 EcmaScript라고 하며, ESS(2009년 이전)와 ES6(2015년 이후)로 명확한 구분점을 가지고 있으며, ES5 이하는 웹의 요소나 브라우저를 제어할 목적을 잦고 있으며,
+        ES6 이상은 ES5 이하의 기능을 포함하며, 객체 지향적 프로그래밍 기법과 프론트엔드 프레임워크이나 Node를 기반으로 view단의 서버 프로그래밍을 할 수 있는 기능이 더 추가되었습니다.</p>
+    <!-- body 요소와 그 하부 요소인 h1, p, h2, hr  등의 출력되고 난 수 실행해야 하는 내용을 기술하는 부분-->
+    <div id="msg"></div>
+    <button type="button" onclick="fnc1()">인라인 이벤트 버튼</button><br>
+    <button type="button" id ="btn2">이벤트 리스너 이벤트 버튼</button><br>
+    <button type="button" id ="btn3">메소드 이벤트 버튼</button><br>
+    
+    <script>
+        //변수의 정의: var 변수명, let 변수명,  const 변수명
+        // var 변수명 = 초기값;
+        var data;
+        var name_str = "김응원";        //문자열변수 name_str
+        var ageNum = 36;                //정수형 변수 ageNum
+        var heightNum = 165.8;            //실수형 변수  heightNum
+        var a=20, b=30;
+        
+        
+     
+        var msg = document.getElementById("msg"); //본문에 있는 id 요소를 선택하여 함수변수에 적용함/ DOM 요소 선택
+        
+        // 이벤트 리스너 함수 호출
+        document.getElementById("btn2").addEventListener("click", function() {fnc2(); });
+        
+        
+        
+        //함수의 정의 : 
+        // 방법1 : function 함수명1(){ }
+        // 방법2 : var 함수명2 = function ()
+        function fnc1() {
+                if(!confirm("함수1을 호출하셨습니다. \n확인 또는 취소를 눌러주세요")){
+                    msg.innerHTML = "<strong>취소를 누르셨습니다.</strong>";
+                } else {
+                    msg.innerHTML = "<em>확인을 누르셨습니다.</em>";
+                }
+        }
+
+
+        var fnc2 = function() {alert("함수2을 호출하셨습니다.");}
+        //배열 : arr[0] = '김응원', arr[1] = '정도준', arr[2] = '조우진', arr[3] = '이정희'.......
+        var arr = ["김응원", "정도준", "조우진", "이정희"];
+
+        //객체 var 객체명 = {속성1:값1, 속성2:값2.... 메소드1:function() {.....}, }
+        
+        
+        var obj ={name: "김민식", age:48, height:183.78,
+        method1:function () { //메소드
+            var wt = prompt("몸무게를 입력해주세요");
+            msg.innerText = this.name + "님의 몸무게는 " + wt + "kg입니다.";
+        }};
+        
+        document.getElementById("btn3").addEventListener("click", 
+        function() {obj.method1(); });
+
+        // 메세지 창
+
+        //alert        [확인]만 출력되는 알림창
+       // m[확인],[취소] 버튼이 동반되어 동의 여부의 제어가 가능함
+
+    </script>
+</body>
+</html>
