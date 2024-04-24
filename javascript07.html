@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>자바스크립트 07</title>
+    <style>
+        #lst1 { list-style:none; width: 1200px; margin: 200px auto;}
+        #lst1 li { float: left; width: 400px; margin: 24px;}
+        #lst1 li img {display: block; width: 300px; height:auto;}
+
+        #lst2 { list-style:none; width: 1200px; margin: 200px auto;}
+        #lst2 li { float: left; width: 400px; margin: 24px;}
+        #lst2 li img {display: block; width: 300px; height:auto;}
+
+    </style>
+
+</head>
+<body>
+    <h1>반복문</h1>
+    <p> while문 do-while문 for문 for~in문 for~of문</p>
+    <hr>
+
+   <!--div.wrap>ul#lst>li*5>img.thumb*/-->
+    <div class="wrap">
+        <ul id="lst1">
+            <li><img src="" alt="" class="thumb"></li>
+            <li><img src="" alt="" class="thumb"></li>
+            <li><img src="" alt="" class="thumb"></li>
+            <li><img src="" alt="" class="thumb"></li>
+            <li><img src="" alt="" class="thumb"></li>
+        </ul>
+        <ul id="lst2">
+            <li><img src="" alt="" class="tb"></li>
+            <li><img src="" alt="" class="tb"></li>
+            <li><img src="" alt="" class="tb"></li>
+            <li><img src="" alt="" class="tb"></li>
+            <li><img src="" alt="" class="tb"></li>
+        </ul>
+    </div>
+
+    <script>
+        
+        var i = 0;      //카운트 변수
+        var res = 0;    //결과 저장 변수
+        while(i<=10){
+            console.log(i);
+            res+=i;     //누적합계
+            i++;        //카운트 증가
+
+        }
+        console.log("합계 :"+ res);
+        console.log("카운트 :" + i);
+
+
+
+    //do-while문 : 비교를 나중에 하게되기 때문에 최소 1회 이상 실행 보장
+
+   /* var j = 0;
+    var hap = 0;
+    do {
+        if(j>100) break;    //무한루프를 빠져 나올 수 있도록 조건과 break를 걸어줌
+        j++;
+        hap+=j;
+        console.log("카운트 :"+ j);
+
+    } while (j>=1);   //항상 1보가 큼을 만족하기 떄문에 무한루프에 빠짐
+    console.log("do-while의 결과 :"+hap);
+    
+    var im =[["1.jpg","2.jpg","3.jpg","4.webp","5.webp"], ["민지", "하니", "도준", "우진","혜린"]]
+    var img = document.getElementsByClassName("thumb");
+    for(var i=0; i<img.length; i++){
+            img[i].src = im[0][i];
+            img[i].alt = im[1][i];
+            img[i].title = im[1][i];
+    }*/
+    
+   
+//--------------------------------------------------------------------------------------------------
+
+    //img를 위한 생성자 함수 Image
+    function Image(src, alt, title){
+        this.src = src;
+        this.alt = alt;
+        this.title = title;
+    }
+
+    var img1 = new Image("1.jpg", "윤아", "노윤아");
+    var img2 = new Image("2.jpg", "민주", "박민주");
+    var img3 = new Image("3.jpg", "모카", "사카이 모카");
+    var img4 = new Image("4.webp", "윈희", "이원희");
+    var img5 = new Image("5.webp", "이로하", "호카조노 이로하");
+
+
+    var images = [img1, img2, img3, img4,img5]; //객체의 배열
+    var tb = document.getElementsByClassName("tb");
+
+    for(var j=0; j<images.length; j++){
+        tb[j].src = images[j].src;
+        tb[j].alt = images[j].alt;
+        tb[j].title = images[j].title;
+
+    }
+
+
+//-------------------------------------------------------------------------------------------------------
+
+
+    var arr = [80, 50, 90, 70, 60]; //배열
+    var obj = {num:1, name:"김기태"}
+    var result="<h2>배열의 순회</h2>";
+    for(var i in arr) { //배열의 순회 / i : index 
+        result += ("점수"+i+":"+arr[i]+"<br>");
+
+    }
+    result+="<h2>객체의 속성에 대한 순회</h2>";
+    for(var key in obj) { //객체의 순회 / key(속성, property)
+        result += (key+": " +obj[key]+ "<br>");
+    }
+    result += "<h2>for~of 배열의 해당 인덱스에 대한 값의 순회</h2>";
+    for(var val of arr){    //배열의 순회2 - value(값)
+        result += (val+"<br>");
+    }
+    document.getElementById("result").innerHTML = result;
+
+
+    </script>
+</body>
+</html>

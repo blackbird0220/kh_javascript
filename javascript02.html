@@ -17,37 +17,32 @@
     </style>
 </head>
 <body>
-(div.rule>h2.title>ul.li*3)*3
-<div class="rule">
-    <title>
-        <ul class="li"></ul>
-        <ul class="li"></ul>
-        <ul class="li"></ul>
-    </title>
-</div>
-<div class="rule">
-    <title>
-        <ul class="li"></ul>
-        <ul class="li"></ul>
-        <ul class="li"></ul>
-    </title>
-</div>
-<div class="rule">
-    <title>
-        <ul class="li"></ul>
-        <ul class="li"></ul>
-        <ul class="li"></ul>
-    </title>
-</div>
-<div class="rule">
-    <title>
-        <ul class="li"></ul>
-        <ul class="li"></ul>
-        <ul class="li"></ul>
-    </title>
-</div>
-
-    div.btn-group>botton#btn$[type="botton"][onclick="fnc$()"]*6
+<!--(div.rule>h2.title+ul>li*3)*3-->
+    <div class="rule">
+        <h2 class="title">스크립트 적용 방식</h2>
+        <ul>
+            <li>인라인 스크립트: 해당 태크에 직접 스크립트를 기입하는 방식</li>
+            <li>내부 스크립트: 해당 문서에 script 태그를 깅비하여 스크립팅하는 방식</li>
+            <li>외부 스크립트: 별도의 .js 파일을 작성하여 여러 문서에서 script 태그를 삽입하는 방식</li>
+        </ul>
+    </div>
+    <div class="rule">
+        <h2 class="title">스크립트 출력 방향</h2>
+        <ul>
+            <li>문서에 출력: document.write()</li>
+            <li>요소에 출력: document.getElementById().innerHTML</li>
+            <li>콘솔에 출력: console.log()</li>
+        </ul>
+    </div>
+    <div class="rule">
+        <h2 class="title">메세지 창</h2>
+        <ul>
+            <li>알림창: alert("메세지")</li>
+            <li>확인창: confirm("메세지")</li>
+            <li>입력창: prompt("메세지")</li>
+        </ul>
+    </div>
+    <!-- div.btn-group>botton#btn$[type="botton"][onclick="fnc$()"]*6 -->
 
     <div class="btn-group">
         <botton id="btn1" type="botton" onclick="fnc1()">문서에 출력</botton>
@@ -58,43 +53,18 @@
         <botton id="btn6" type="botton" onclick="fnc6()">입력창에 출력</botton>
         <a href="javascript:;" id="btn7" onclick="fnc7()">링크버튼1</a>
         <a href="javascript:none ;" id="btn8" onclick="fnc8()">링크버튼2</a>
-
-
     </div>
-        <h1 class="title"> 자바스크립트의 출력 방향과 메세지창</h1>
-        <hr>
-        <div class="rule"
 
-        <ul>
-            <li>외부스크립트: 별도의 .js 파일을 작성하여 여러 문서에서 script 태그로 </li>
-        </ul>
-
-        <div class="rule">
-            <h2 class="rule">           </h2>
-
-            <h2 class="btn-group">           </h2>
-        </div>
-        <div class="btn-group">
-          
-            a#javascript[id#btn$][onclick]
-
-
-            <div class="activity">
-                <div id="rest1"></div>
-                <div id="rest2"></div>
-                <div id="rest3"></div>
-            
-            </div>
-            <script>
-            
-            var fnc1 = function() {document.write("<h2>문서에 출력</h2>");};
-            var fnc2 = function() {document.
-
-            }
-           
-
-
-            </script>
+    <div class="activity">
+        <div id="res1"></div>
+        <div id="res2"></div>
+        <div id="res3"></div>
+    </div>
+    <script>
+    var fnc1 = function() {document.write("<h2>문서에 출력</h2>");};
+    var fnc2 = function() {document.getElementById("res1").innerHTML ="<h2>요소에 출력</h2>"
+    }
+    </script>
 
 
 </body>
