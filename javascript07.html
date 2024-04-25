@@ -5,6 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>자바스크립트 07</title>
     <style>
+        h2 { clear:both; padding-top: 2rem; width:1200px; margin: 0px auto; }
+        hr { clear: both; }
+
         #lst1 { list-style:none; width: 1200px; margin: 200px auto;}
         #lst1 li { float: left; width: 400px; margin: 24px;}
         #lst1 li img {display: block; width: 300px; height:auto;}
@@ -107,7 +110,7 @@
 
 
     var arr = [80, 50, 90, 70, 60]; //배열
-    var obj = {num:1, name:"김기태"}
+    var obj = {num:1, name:"김기태", point:90}
     var result="<h2>배열의 순회</h2>";
     for(var i in arr) { //배열의 순회 / i : index 
         result += ("점수"+i+":"+arr[i]+"<br>");

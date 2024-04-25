@@ -17,7 +17,7 @@
     <hr>
     <h2>자식창과 부모창의 데이터 전달과 제어</h2>
     <div id="form1">
-            <form name="afrmName">
+            <form name="aFrmName">
                 <input type="text" name="aName" id="aName" value="홍길동"><br><br>
                 <input type="button" value="팝업창 열기" onclick="openChild()">&nbsp;
                 <input type="button" value="자식창 값 설정" onclick="setChildText()">
@@ -44,25 +44,102 @@
        </script>
 
        <script>
-        var childWindow ;
+        var childWindow ;       //자식창을 저장하기 위한 변수
         var aName = "";
         function openChild() {
-            aName = document.getElementById("aName").value;
-            var windowFeatures = "width= 500, height=300, top= 200, left= 200, popup";
-            childWindow = window.open("child1.html?gata="+aName, "myPopup", windowFeatures);
+            aName = document.getElementById("aName").value;  
+            var windowFeatures = "width= 500, height=300, top= 200, left= 200, popup";      //생성한 자식창을 변수에 저장
+            // 자식 창이 이미 열려 있는지 확인하고, 열러 있지 않다면 열기
+            if(!childWindow || childWindow.closed) {
+                childWindow = window.open('child1.html?data ='+aName, 'childWindow', windowFeatures);
+            }
+        }
 
+
+        /*  childWindow = window.open("child1.html?gata="+aName, "myPopup", windowFeatures);
         }
         function setChildText(){
             var aValue = document.getElementById("aName").value;
             childWindow.document.getElementById("childName").value = aValue;
 
-        }
+        }*/
 
 
        </script>
 
+       <hr>
+       <h2>Select 태그를 활용한 새 창 열기</h2>
+       <select name = "sel" id="sel">
+            <option value="">선택안함</option>
+            <option value="http://www.naver.com">네이버</option>
+            <option value="http://www.daum.net">다음</option>
+            <option value="http://www.nage.com">네이트</option>
+            <option value="http://www.google.com">구글</option>
+       </select>
+       <script>
+        var sel = document.getElementById("sel");
+        var win3;
+        var opt3 = "width=400, height=300, top=100, left=300, scrollbars=no, menubar=no, status=no, toolbar=no, location=no";
+        sel.addEventListener("change", function(){
+            if(sel.value!=""){
+                var win3 = window.open(sel.value, "selWindow", opt3);
+            }
+        });
+        </script>
 
 
+
+
+
+        <hr>
+        <h2>레이어 팝업</h2>
+        <label for="layer_popup_ck1" class="open_btn">레이어 팝업 열기</label>
+        <input type="checkbox" class="hd_item" id="layer_popup_ck1">
+        <div class="popup1">
+            <div class="pop_box">
+                <h2 class="pop_tit">
+                    <span class="tit">제목</span>
+                    <label for="layer_popup_ck1" class="close_btn">X</label>
+                </h2>
+                <figure class="pop_con">
+                    <img src="http://placehold.it/360x240/333" alt="팝업이미지">
+                </figure>
+            </div>
+        </div>
+        <hr>
+        <h2>사이트 이동하기</h2>
+        <div class="btn_box">
+`           <button type="button" id="btn4">다음으로 이동</button>
+`           <button type="button" id="btn5" onclick="googleHref()">구글로 이동</button>
+`           <button type="button" id="btn6">네이버로 이동</button>
+`           <button type="button" id="btn7">뒤로</button>
+`           <button type="button" id="btn8">앞으로(이전)</button>
+`           <button type="button" id="btn9">이전의 앞으로</button>
+        </div>
+        <script>
+            document.getElementById("btn4").addEventListener("click", function(){
+                location.replace("http://www.daum.net");        //사이트 이동시 뒤로 가기 할 수 없음
+            });
+            function googleHref(){
+                location.assign("http://www.google.com");
+            }
+            document.getElementById("btn6").addEventListener("click", function(){
+                location.href = "http://www.naver.com";
+            });
+            document.getElementById("btn7").addEventListener("click", function(){
+                history.back();         //뒤로
+            });
+            document.getElementById("btn8").addEventListener("click", function(){
+                history.forward();         //앞으로
+            });
+            document.getElementById("btn9").addEventListener("click", function(){
+                history.go(-2);             //뒤로 뒤로 
+                //history.forward();         //앞으로
+            });
+
+        </script>
+        <hr>
+        <h2>navigator/screen</h2>
 
 </body>
 </html>

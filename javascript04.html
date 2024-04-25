@@ -57,33 +57,32 @@
         st1.family = "전주이씨";
         st2.family = "경주이씨";
     //메소드 추가
+        var html = "";
         st1.toString = function(){
-            var html = "";
             var res5 = document.getElementById("res5");
             html = "<p>";
             html =html +"<strong>+본관:" +this.family+ "<strong> &nbsp;&nbsp;&nbsp;";
             html =html +"<strong>+이름:" +this.name+ "<strong> &nbsp;&nbsp;&nbsp;";
             html =html +"<strong>+나이:" +this.age+ "<strong> &nbsp;&nbsp;&nbsp;";
-            res5.innerHTML = res5.innerHTML+ html;    
+            html = html + "</p>";  
+            res5.innerHTML = html;  
         }
         st1.toString();
-
+        //항목 제거 전 순회
         html = "";
-        for(var field in st1) {
-            html += "<strong>" + field +"</strong>&nbsp;&nbsp;&nbsp;";
+        for(var field in st1){
+            html += "<strong>"+field+"</strong> &nbsp; &nbsp; &nbsp;";
         }
         document.getElementById("res6").innerHTML = html;
-
-
-        // 항목 제거
+        //항목(Field) 제거
         delete st1.family;
-        
-        html="";
-        for(var field in st1) {
-            html += "<strong>" + field +"</strong>&nbsp;&nbsp;&nbsp;";
+        //항목 제거 후 순회
+        html = "";
+        for(var field in st1){
+            html += "<em>"+field+"</em> &nbsp; &nbsp; &nbsp;";
         }
         document.getElementById("res7").innerHTML = html;
-    </script>
+        </script>
     
 </body>
 </html>

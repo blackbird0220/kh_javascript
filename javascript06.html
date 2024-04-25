@@ -116,14 +116,13 @@
             if(arr[i] >= 90) sisang = "과목우수";
         }
        
-        document.getElementById("tot").innerHTML = "총점 : "+ tot;
-        document.getElementById("avg").innerHTML = "평균 : "+ avg;
-        document.getElementById("pan").innerHTML = "합격여부 : "+ pan;
-        document.getElementById("hak").innerHTML = "학점 : "+ hak;
-        document.getElementById("remark").innerHTML = "학점 : "+ remark;
-        document.getElementById("sisang").innerHTML = "시상여부 : "+ sisang;
-
-    </script>
-
+        document.getElementById("tot").innerHTML = "총점 : "+tot;
+        document.getElementById("avg").innerHTML = "평균 : "+avg;
+        document.getElementById("pan").innerHTML = "판정 : "+pan;
+        document.getElementById("hak").innerHTML = "학점 : "+hak;
+        document.getElementById("remark").innerHTML = "참고사항 : "+remark;
+        document.getElementById("sisang").innerHTML = "시상내역 : "+sisang;
+        document.getElementById("point").style.width = avg*4+"px";
+        </script>
 </body>
 </html>
